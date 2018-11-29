@@ -1,0 +1,35 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <h2>Bitmaker CRM</h2>
+    <nav>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/contacts">Add a Contact</a></li>
+      <li><a href="/about_me">About</a></li>
+    </ul>
+    </nav>
+
+    <div>
+      <p>There are <span class="number">5</span> contacts</p>
+    </div>
+
+    <% @contacts.each do |contact| %>
+    <div class="contacts">
+      <h3><%=contact.first_name%> (<%=contact.email%>)</h3>
+      <p><a href="#">Edit</a> | <a href="#">Delete</a></p>
+    </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+
+  <footer>
+
+  </footer>
+</html>
