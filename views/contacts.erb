@@ -2,6 +2,23 @@
 
 <h1>Contacts</h1>
 
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Note</th>
+    </tr>
+  <% @contacts.each do |contact| %>
+    <tr>
+        <td><%=contact.first_name%></td>
+        <td><%=contact.last_name%></td>
+        <td><%=contact.email%></td>
+        <td><%=contact.note%></td>
+    </tr>
+  <% end %>
+</table>
+
 <ul>
   <li>
     <a href="/home">Home</a>

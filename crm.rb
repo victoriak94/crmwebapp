@@ -8,7 +8,7 @@ get '/home' do
 end
 
 get '/contacts' do
-  @contacts = []
+  @contacts = Contact.all
   erb :contacts
 end
 
