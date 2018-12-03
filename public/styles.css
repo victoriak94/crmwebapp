@@ -62,14 +62,14 @@ h3 {
   text-align: center;
 }
 
+p {
+    margin: 10px;
+}
+
 footer {
     background-color: #222;
     text-align: center;
     color: #fff;
     padding: 20px;
     font-size: 12px;
-}
-
-p {
-    margin: 10px;
 }
