@@ -8,10 +8,18 @@ get '/home' do
   erb :index
 end
 
+get '/' do
+  redirect to ('/contacts')
+end
+
 get '/contacts' do
   @title = "Bitmaker CRM"
   @contacts = Contact.all
   erb :contacts
+end
+
+get '/contacts/new' do
+  erb :new
 end
 
 get '/contacts/:id' do
@@ -28,6 +36,26 @@ end
 get '/about_me' do
   @title = "About"
   erb :about_me
+end
+
+post '/contacts' do
+  Contact.create(
+    first_name: params[:first_name],
+    last_name:  params[:last_name],
+    email:      params[:email],
+    note:       params[:note]
+  )
+  redirect to('/contacts')
+end
+
+get '/contacts/:id/edit' do
+  @contact = Contact.find_by(id: params[:id].to_i)
+  if @contact
+    erb :edit_contact
+  else
+    raise Sinatra::NotFound
+  end
+  erb :edit_contact
 end
 
 after do
